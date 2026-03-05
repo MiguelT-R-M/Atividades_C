@@ -6,9 +6,9 @@ int main(){
     int Ani_dia, Ani_mes, Ani_ano, Data_dia, Data_mes, Data_ano;
     int AMOR, SORTE, TRABALHO, COR;
 
-    scanf("%d/%d/%d %d/%d/%d", &Ani_dia, &Ani_mes, &Ani_ano, &Data_dia, &Data_mes, &Data_ano);
-    int Soma_data = Ani_dia + Ani_mes + Ani_ano + Data_dia + Data_mes + Data_ano;
-    int Soma_dias_meses = Ani_dia + Ani_mes + Data_dia + Data_mes;
+    scanf("%d/%d/%d %d/%d/%d", &Ani_dia, &Ani_mes, &Ani_ano, &Data_dia, &Data_mes, &Data_ano); // scanf que pega todos os inputs do usuário
+    int Soma_data = Ani_dia + Ani_mes + Ani_ano + Data_dia + Data_mes + Data_ano; // Soma de todas as datas
+    int Soma_dias_meses = Ani_dia + Ani_mes + Data_dia + Data_mes; // Soma de todos os dias e meses
 
     AMOR = (Soma_data*7)%101;
     printf("Amor: %d%% ", AMOR);
