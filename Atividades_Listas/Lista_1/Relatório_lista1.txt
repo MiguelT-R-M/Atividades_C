@@ -1,3 +1,7 @@
 At_1: Não usei IA.
 
-At_2: Usei Ia para encontrar e entender as fórmulas matemáticas necessárias para a resolução
+At_2: Usei IA para encontrar e entender as fórmulas matemáticas necessárias para a resolução da questão.
+
+At_3: Não usei IA.
+
+At_4: Não usei IA.
