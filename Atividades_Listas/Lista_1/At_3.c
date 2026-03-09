@@ -3,7 +3,7 @@
 
 int main(){
 
-    double Dinheiro_total, PORCA, PORCB, PORCC, VALA, VALB, VALC, SOBRA, Dinheiro_Rebeka = 3.0, INVEST = 0.0;
+    double Dinheiro_total, PORCA, PORCB, PORCC, SOBRA, Dinheiro_Rebeka = 3.0, INVEST = 0.0;
 
     scanf("%lf\n%lf\n%lf\n%lf", &Dinheiro_total, &PORCA, &PORCB, &PORCC);
 
