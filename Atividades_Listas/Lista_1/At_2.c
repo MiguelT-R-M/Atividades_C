@@ -4,10 +4,10 @@
 #include <math.h>
 
 int main(){
-    unsigned int N, A, B, Soma_total, SOMAA, SOMAB, AM, BM, Soma_final, MMCAB, MMCABM, SOMMC;
+    long long unsigned int N, A, B, Soma_total, SOMAA, SOMAB, AM, BM, Soma_final, MMCAB, MMCABM, SOMMC;
 
-    scanf("%u", &N);
-    scanf("%u %u", &A, &B);
+    scanf("%llu", &N);
+    scanf("%llu %llu", &A, &B);
 
     Soma_total = (N*(N+1))/2; // Formula de soma total de 1 até N
     
@@ -27,7 +27,7 @@ int main(){
 
     Soma_final = Soma_total - (SOMAA + SOMAB - SOMMC); // Formula da soma final
 
-    printf("%u\n", Soma_final);
+    printf("%llu\n", Soma_final);
     if(Soma_final%2==0){
         printf("Lá ele!!!");
     }else{
