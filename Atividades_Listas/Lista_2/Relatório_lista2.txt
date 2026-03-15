@@ -1,7 +1,7 @@
 At_1: Não usei IA.
 
-At_2: 
+At_2: Não usei IA.
 
-At_3: 
+At_3: Usei IA para algumas fórmulas no começo e também para uma correção geral e final do código
 
 At_4: 
