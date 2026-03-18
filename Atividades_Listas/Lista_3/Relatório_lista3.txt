@@ -1,5 +1,6 @@
-At_1: Usei IA para corrigir o meu código, aprendi que é mais otimizado separar os inputs da lógica em si, algo bizarro estava
-      acontecendo quando ele testava as condições enquanto ainda estava recebendo inputs.
+At_1: Usei IA para corrigir o meu código, aprendi que é mais otimizado separar os inputs da lógica em si, e não "iterar" o array 
+      enquanto ainda estava recevebendo inputs, algo bizarro estava acontecendo quando ele testava as condições enquanto ainda 
+      estava recebendo inputs.
 
 At_2: 
 
