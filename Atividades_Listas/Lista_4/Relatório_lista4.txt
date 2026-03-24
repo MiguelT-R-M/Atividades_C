@@ -1,6 +1,7 @@
 At_1: Não usei IA.
 
-At_2:
+At_2: Usei IA para uma correção geral do código. Sem muito tempo pra fazer direito agora, temos prova de Cálculo 2 em menos de 
+      uma semana e um teste amanhã que não avisaram em nada.
 
 At_3: 
 
