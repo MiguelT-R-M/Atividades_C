@@ -96,7 +96,7 @@ int main(void){
             if(WORDS[i] != NULL){
                 scanf("%s", WORDS[i]);
                 WORDS_size[i] = strlen(WORDS[i]);
-                WORDS[i] = realloc(WORDS[i], WORDS_size[i]+1);
+                WORDS[i] = realloc(WORDS[i], (WORDS_size[i]+1) * sizeof(*WORDS));
                 Merged_wsize += WORDS_size[i];
             }else{
                 printf("Problema de memória");
@@ -105,7 +105,7 @@ int main(void){
 
         }
 
-        Merged_word = realloc(Merged_word, Merged_wsize); Fusion_form = realloc(Fusion_form, Merged_wsize); // realoca pro tamanho certo
+        Merged_word = realloc(Merged_word, Merged_wsize * sizeof(*Merged_word)); Fusion_form = realloc(Fusion_form, Merged_wsize * sizeof(*Fusion_form)); // realoca pro tamanho certo
 
         wordMerge(Merged_wsize, Word_amount, Indexes, WORDS_size, Merged_word, WORDS); // Função que da merge nas palavras
 

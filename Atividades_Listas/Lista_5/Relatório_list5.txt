@@ -1,6 +1,6 @@
-At_1: Não usei IA.
+At_1: Não usei IA. Usei IA depois de fazer a segunda questão para resolver o mesmo erro de REALLOC
 
-At_2: NÃO USEI IA.
+At_2: Usei IA apenas para entender um erro do REALLOC.
 
 At_3:
 
