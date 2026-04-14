@@ -38,15 +38,15 @@ void wordMerge(int Merged_wsize, int Word_amount, int *Indexes, int *WORDS_size,
 
 void wordFusion(char *Fusion_form, int Merged_wsize, char *Merged_word){
 
-    int Fusion_pos = 0, END = 1, Fusion_amount = 0;
+    int Fusion_pos = 0, END = 1, Fusion_amount = 0, CONTINUE = 1;
 
     while(END){ // Loop que itera na Merged_word até ficar na forma certa
 
-        END = 0; Fusion_pos = 0; Fusion_amount = 0;
+        END = 0; Fusion_pos = 0; Fusion_amount = 0, CONTINUE = 1;
 
         for(int i = 0; i<Merged_wsize-1; i++){ // for loop em si que itera
 
-            if((i<Merged_wsize-1)&&(Merged_word[i] == Merged_word[i+1])){
+            if((CONTINUE == 1)&&(i<Merged_wsize-1)&&(Merged_word[i] == Merged_word[i+1])){
 
                 if(Merged_word[i]>=97 && Merged_word[i]<122){Fusion_form[Fusion_pos] = Merged_word[i] + 1;}else{Fusion_form[Fusion_pos] = 'a';}
                 if((i>0)&&(Fusion_form[Fusion_pos]==Fusion_form[Fusion_pos-1])){
@@ -55,6 +55,7 @@ void wordFusion(char *Fusion_form, int Merged_wsize, char *Merged_word){
                 }
                 i++;
                 Fusion_pos++;
+                CONTINUE = 0;
 
             }else{
 
