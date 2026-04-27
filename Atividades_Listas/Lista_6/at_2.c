@@ -33,14 +33,13 @@ int main(void){
 
     char ATAQUE[16] = {'\n'}; scanf("%15s", ATAQUE);
 
-    void (*Funct_pointer)(int***, int, int, int (*)[2], int (*)[2]) = NULL; 
-
+    void (*Funct_pointer[2])(int***, int, int, int (*)[2], int (*)[2]) = {explosaoArcana, nuvemVenenosa}; int k = -1;
     if(strcmp(ATAQUE, "EXPLOSAO_ARCANA") == 0){
-        int k = 0; Funct_pointer = explosaoArcana; printf("Estado do mapa após usar a Explosão Arcana:\n");
+        k = 0;
     }else if(strcmp(ATAQUE, "NUVEM_VENENOSA") == 0){
-        int k = 1; Funct_pointer = nuvemVenenosa; printf("Estado do mapa, por turno, após usar a Nuvem Venenosa:\n");
+        k = 1;
     }
-    Funct_pointer(&Mat_copy, M, N, Camada_1, Camada_2);
+    Funct_pointer[k](&Mat_copy, M, N, Camada_1, Camada_2);
 
     freeMat(&Mat, M);
     freeMat(&Mat_copy, M);
@@ -48,6 +47,7 @@ int main(void){
 }
 
 void explosaoArcana(int ***Mat, int M, int N, int Camada_1[5][2], int Camada_2[16][2]){
+    printf("Estado do mapa após usar a Explosão Arcana:\n");
     for(int i = 0; i<M; i++){
         for(int j = 0; j<N; j++){
 
@@ -80,7 +80,7 @@ void explosaoArcana(int ***Mat, int M, int N, int Camada_1[5][2], int Camada_2[1
 }
 
 void nuvemVenenosa(int ***Mat, int M, int N, int Camada_1[5][2], int Camada_2[16][2]){
-
+    printf("Estado do mapa, por turno, após usar a Nuvem Venenosa:\n");
     for(int z = 0; z<3; z++){
 
         int END = 1;
