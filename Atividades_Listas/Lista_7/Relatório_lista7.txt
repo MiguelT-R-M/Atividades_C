@@ -1,5 +1,6 @@
 At_1: Não usei IA.
 
-At_2: Não usei IA.
+At_2: Usei IA para corrigir alguns erros e para dar luz a um BUG MALIGNO do compilador do youcoding, que não permitia o uso
+      De uma exclamação char desta forma '!', passei mais de uma hora tentando achar o problema pra ser uma besteira desse nível.
 
 At_3: 
