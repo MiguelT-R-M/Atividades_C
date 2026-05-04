@@ -110,6 +110,10 @@ int main(void){
 
     printf("Esquadrao pronto para o combate.");
 
+    for(int i = 0; i<Mecha_quant; i++){
+        free(Evas[i]);
+    }
+
     return 0;
 }
 
