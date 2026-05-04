@@ -80,8 +80,19 @@ int main(void){
         Evas[i]->valor_wintermute = TEMPWINTER; 
     }
 
-    printf("%s\n", (*Evas)[0].sistemas[0].nome);
     mechaOrder(Evas, Mecha_quant);
+
+    printf("[RELATORIO DE MISSÃO: OPERAÇÃO LANÇA DE NETUNO]\n");
+    
+    for(int i = 0; i<Mecha_quant; i++){
+        printf("ID: %d | MECHA: %s | ENERGIA: %d\n", Evas[i]->id, Evas[i]->modelo, Evas[i]->energia_atual);
+
+        
+
+        printf("ENERGIA FINAL: %d\n-----------------------------------------\n", Evas[i]->energia_atual);
+    }
+
+    printf("Esquadrao pronto para o combate.");
 
     return 0;
 }
