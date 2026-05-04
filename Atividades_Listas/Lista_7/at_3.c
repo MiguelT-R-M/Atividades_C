@@ -50,7 +50,7 @@ int main(void){
         int Q; scanf("%d", &Q);
 
 
-        Mecha *TEMPOINTER = realloc(Evas[i], sizeof(Mecha) + Q * (sizeof(SubSistema)));
+        Mecha *TEMPOINTER = realloc(Evas[i], sizeof(Mecha) + (Q * (sizeof(SubSistema))));
         checkNull(TEMPOINTER);
         Evas[i] = TEMPOINTER;
 
@@ -65,15 +65,15 @@ int main(void){
             int TEMPAT1, TEMPAT2; scanf("%d %d", &TEMPAT1, &TEMPAT2);
 
             if(TEMPTIPO == 'D'){
-                (*Evas)[i].sistemas[j].subrotina = defesaFunc;
+                Evas[i]->sistemas[j].subrotina = defesaFunc;
             }else if(TEMPTIPO == 'U'){
-                (*Evas)[i].sistemas[j].subrotina = utilidadeFunc;
+                Evas[i]->sistemas[j].subrotina = utilidadeFunc;
             }else if(TEMPTIPO == 'A'){
-                (*Evas)[i].sistemas[j].subrotina = ataqueFunc;
+                Evas[i]->sistemas[j].subrotina = ataqueFunc;
             }
 
-            strcpy((*Evas)[i].sistemas[j].nome, TEMPNOME);
-            (*Evas)[i].sistemas[j].atrib1 = TEMPAT1; (*Evas)[i].sistemas[j].atrib2 = TEMPAT2;
+            strcpy(Evas[i]->sistemas[j].nome, TEMPNOME);
+            Evas[i]->sistemas[j].atrib1 = TEMPAT1; Evas[i]->sistemas[j].atrib2 = TEMPAT2;
         }
 
         int TEMPWINTER; scanf("%d", &TEMPWINTER);
@@ -85,10 +85,26 @@ int main(void){
     printf("[RELATORIO DE MISSÃO: OPERAÇÃO LANÇA DE NETUNO]\n");
     
     for(int i = 0; i<Mecha_quant; i++){
+        int Output;
         printf("ID: %d | MECHA: %s | ENERGIA: %d\n", Evas[i]->id, Evas[i]->modelo, Evas[i]->energia_atual);
-
-        
-
+        for(int j = 0; j<Evas[i]->num_sistemas; j++){
+            if(Evas[i]->sistemas[j].subrotina == defesaFunc){
+                Evas[i]->sistemas[j].subrotina(Evas[i], j, Evas[i]->valor_wintermute, &Output);
+                printf("-> [DEFESA] %s | Dano final sofrido: %d\n", Evas[i]->sistemas[j].nome, Output);
+            }
+        }
+        for(int j = 0; j<Evas[i]->num_sistemas; j++){
+            if(Evas[i]->sistemas[j].subrotina == utilidadeFunc){
+                Evas[i]->sistemas[j].subrotina(Evas[i], j, Evas[i]->valor_wintermute, &Output);
+                printf("-> [UTILIDADE] %s | Energia atual: %d\n", Evas[i]->sistemas[j].nome, Evas[i]->energia_atual);
+            }
+        }
+        for(int j = 0; j<Evas[i]->num_sistemas; j++){
+            if(Evas[i]->sistemas[j].subrotina == ataqueFunc){
+                Evas[i]->sistemas[j].subrotina(Evas[i], j, Evas[i]->valor_wintermute, &Output);
+                if(Output>0){printf("-> [ATAQUE] %s | Dano causado: %d | Energia restante: %d\n", Evas[i]->sistemas[j].nome, Output, Evas[i]->energia_atual);}
+            }
+        }
         printf("ENERGIA FINAL: %d\n-----------------------------------------\n", Evas[i]->energia_atual);
     }
 
@@ -115,11 +131,25 @@ void mechaOrder(Mecha **Evas, int Mecha_quant){
     }
 }
 void defesaFunc(Mecha *m, int slot, int input, int *output){
-
+    int Dano = input - m->sistemas[slot].atrib1 - (slot * m->sistemas[slot].atrib2);
+    if(Dano<0){
+        Dano = 0;
+    }
+    *output = Dano;
 }
 void utilidadeFunc(Mecha *m, int slot, int input, int *output){
-
+    int Recuperado = m->sistemas[slot].atrib1 + (slot * m->sistemas[slot].atrib2);
+    *output = Recuperado;
+    m->energia_atual+=Recuperado;
 }
 void ataqueFunc(Mecha *m, int slot, int input, int *output){
-
+    if(m->energia_atual<m->sistemas[slot].atrib2){
+        *output = 0;
+        printf("-> [ATAQUE] %s | Energia insuficiente!\n", m->sistemas[slot].nome);
+        return;
+    }else{
+        int Dano = m->sistemas[slot].atrib1 + m->energia_atual + slot - input;
+        *output = Dano;
+        m->energia_atual-=m->sistemas[slot].atrib2;
+    }
 }
